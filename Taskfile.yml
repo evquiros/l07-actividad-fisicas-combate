@@ -1,0 +1,30 @@
+version: '3'
+
+includes:
+  app:
+    taskfile: ./app/Taskfile.yml
+    dir: ./app
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  test:
+    desc: "Ejecuta las pruebas unitarias para validar los pasos del ejercicio"
+    dir: ./app
+    cmds:
+      - ./gradlew :shared:jvmTest
+
+  desktop:
+    desc: "Ejecuta la demo interactiva en Desktop (JVM)"
+    dir: ./app
+    cmds:
+      - ./gradlew :desktopApp:run
+
+  consigna:
+    desc: "Genera el PDF de la consigna de la actividad con Quarto"
+    dir: ./assigment
+    cmds:
+      - quarto render consigna.qmd --quiet
+
