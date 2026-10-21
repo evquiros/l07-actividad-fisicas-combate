@@ -60,15 +60,17 @@ class Game : GameSession {
         val d = dtMs / 1000.0
         val currentObjects = objects.toList()
 
-        // TODO Paso 3.1: Integrar posición según velocidad (x += vx * d, y += vy * d)
+        // Integrar posición según velocidad (x += vx * d, y += vy * d)
         for (obj in currentObjects) {
-            // obj.x += obj.vx * d
-            // obj.y += obj.vy * d
+            obj.x += obj.vx * d
+            obj.y += obj.vy * d
 
-            // TODO Paso 3.2: Aplicar aceleración de gravedad hacia abajo si tiene masa y está en el aire
-            // if (obj.mass > 0 && obj.y > 0) { obj.vy -= obj.mass * d }
+            // Aplicar aceleración de gravedad hacia abajo si tiene masa y está en el aire
+            if (obj.mass > 0 && obj.y > 0) {
+                obj.vy -= obj.mass * d
+            }
 
-            // TODO Paso 3.3: Restricción contra el suelo y techo (rebote y fricción)
+            // Restricción contra el suelo y techo (rebote y fricción)
             val lower = stage.floor
             val upper = stage.ceiling - obj.spriteHeight
 
