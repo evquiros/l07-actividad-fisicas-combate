@@ -22,7 +22,7 @@ fun createPlayer(): GameObject {
 }
 
 /**
- * TODO Paso 4.1: Crea el proyectil de hechizo con físicas y colisiones:
+ * Crea el proyectil de hechizo con físicas y colisiones:
  * - spriteName = "spell_skull"
  * - spriteWidth = 24, spriteHeight = 24
  * - tags = Tags.SPELL
@@ -38,9 +38,9 @@ fun createSpell(): GameObject {
         spriteName = "spell_skull"
         spriteWidth = 24
         spriteHeight = 24
-        tags = Tags.NONE // TODO Paso 4.1: Asigna Tags.SPELL
-        collisionMask = Tags.NONE // TODO Paso 4.1: Asigna Tags.LIVING
-        mass = 0.0 // TODO: Asigna 100.0
+        tags = Tags.SPELL
+        collisionMask = Tags.LIVING
+        mass = 100.0
         friction = 0.1
         despawnOnCollision = true
         despawnOnBounce = true
